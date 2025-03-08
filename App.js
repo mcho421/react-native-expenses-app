@@ -3,6 +3,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import AllExpensesScreen from "./screens/AllExpensesScreen";
 import RecentExpensesScreen from "./screens/RecentExpensesScreen";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { Pressable } from "react-native";
+import EditModal from "./components/EditModal";
+import { useState } from "react";
 
 const BottomTab = createBottomTabNavigator();
 
