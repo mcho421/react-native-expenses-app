@@ -21,14 +21,23 @@ export default function App() {
       <NavigationContainer>
         <BottomTab.Navigator
           screenOptions={{
+            headerTintColor: "white",
+            headerStyle: {
+              backgroundColor: "blue",
+            },
             headerRight: () => (
               <Pressable
                 style={{ marginRight: 12 }}
                 onPress={() => setIsAdding(true)}
               >
-                <Ionicons name="add" size={24} />
+                <Ionicons name="add" size={24} color="white" />
               </Pressable>
             ),
+            tabBarStyle: {
+              backgroundColor: "blue",
+            },
+            tabBarActiveTintColor: "yellow",
+            tabBarInactiveTintColor: "gray",
           }}
         >
           <BottomTab.Screen
@@ -37,7 +46,9 @@ export default function App() {
             options={{
               title: "Recent",
               headerTitle: "Recent Expenses",
-              tabBarIcon: () => <Ionicons name="hourglass" size={24} />,
+              tabBarIcon: ({ color }) => (
+                <Ionicons name="hourglass" size={24} color={color} />
+              ),
             }}
           />
           <BottomTab.Screen
@@ -46,7 +57,9 @@ export default function App() {
             options={{
               title: "All Expenses",
               headerTitle: "All Expenses",
-              tabBarIcon: () => <Ionicons name="calendar" size={24} />,
+              tabBarIcon: ({ color }) => (
+                <Ionicons name="calendar" size={24} color={color} />
+              ),
             }}
           />
         </BottomTab.Navigator>
