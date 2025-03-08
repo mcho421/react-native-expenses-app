@@ -4,7 +4,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function EditModal({ visible, onClose }) {
   return (
-    <Modal animationType="slide" visible={visible}>
+    <Modal animationType="slide" transparent visible={visible}>
       <View
         style={{
           backgroundColor: "darkblue",
@@ -13,6 +13,7 @@ export default function EditModal({ visible, onClose }) {
           overflow: "hidden",
           marginTop: 12,
           flex: 1,
+          elevation: 6,
         }}
       >
         <View style={{ backgroundColor: "blue", padding: 8 }}>

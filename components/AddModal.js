@@ -2,7 +2,7 @@ import { Button, Modal, Text, View } from "react-native";
 
 export default function AddModal({ visible, onClose }) {
   return (
-    <Modal animationType="slide" visible={visible}>
+    <Modal animationType="slide" transparent visible={visible}>
       <View
         style={{
           backgroundColor: "darkblue",
@@ -11,6 +11,7 @@ export default function AddModal({ visible, onClose }) {
           overflow: "hidden",
           marginTop: 12,
           flex: 1,
+          elevation: 6,
         }}
       >
         <View style={{ backgroundColor: "blue", padding: 8 }}>
