@@ -33,7 +33,7 @@ export default function AllExpensesScreen() {
             padding: 8,
           }}
         >
-          <Text style={{ color: "purple" }}>Last 7 Days</Text>
+          <Text style={{ color: "purple" }}>Total</Text>
           <Text style={{ color: "purple", fontWeight: "bold" }}>
             ${totalExpense}
           </Text>
