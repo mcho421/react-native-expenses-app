@@ -6,6 +6,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Pressable } from "react-native";
 import { useState } from "react";
 import AddModal from "./components/AddModal";
+import { StatusBar } from "expo-status-bar";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -14,6 +15,7 @@ export default function App() {
 
   return (
     <>
+      <StatusBar style="light" />
       <AddModal visible={isAdding} onClose={() => setIsAdding(false)} />
       <NavigationContainer>
         <BottomTab.Navigator
