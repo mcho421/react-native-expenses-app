@@ -4,7 +4,6 @@ import AllExpensesScreen from "./screens/AllExpensesScreen";
 import RecentExpensesScreen from "./screens/RecentExpensesScreen";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Pressable } from "react-native";
-import EditModal from "./components/EditModal";
 import { useState } from "react";
 import AddModal from "./components/AddModal";
 
