@@ -6,8 +6,6 @@ export default function AddModal({ visible, onClose }) {
       <View
         style={{
           backgroundColor: "darkblue",
-          borderColor: "red",
-          borderWidth: 1,
           borderTopLeftRadius: 16,
           borderTopRightRadius: 16,
           overflow: "hidden",
