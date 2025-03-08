@@ -11,12 +11,10 @@ import AddModal from "./components/AddModal";
 const BottomTab = createBottomTabNavigator();
 
 export default function App() {
-  [isEditing, setIsEditing] = useState(false);
   [isAdding, setIsAdding] = useState(false);
 
   return (
     <>
-      <EditModal visible={isEditing} onClose={() => setIsEditing(false)} />
       <AddModal visible={isAdding} onClose={() => setIsAdding(false)} />
       <NavigationContainer>
         <BottomTab.Navigator
