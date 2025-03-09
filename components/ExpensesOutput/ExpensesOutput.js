@@ -1,6 +1,6 @@
-import { StyleSheet, View, FlatList } from "react-native";
-import ExpenseItem from "../ExpenseItem";
+import { StyleSheet, View } from "react-native";
 import ExpensesSummary from "./ExpensesSummary";
+import ExpensesList from "./ExpensesList";
 
 export default function ExpensesOutput({
   expenses,
@@ -10,18 +10,7 @@ export default function ExpensesOutput({
   return (
     <View style={styles.container}>
       <ExpensesSummary expenses={expenses} summaryTitle={summaryTitle} />
-      <FlatList
-        style={{ width: "100%", gap: 12 }}
-        data={expenses}
-        renderItem={(itemData) => (
-          <ExpenseItem
-            title={itemData.item.title}
-            date={itemData.item.date}
-            price={itemData.item.price}
-            onPress={() => setIsEditing(true)}
-          />
-        )}
-      />
+      <ExpensesList expenses={expenses} setIsEditing={setIsEditing} />
     </View>
   );
 }
