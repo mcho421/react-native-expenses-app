@@ -1,32 +1,15 @@
-import { StyleSheet, View, Text, FlatList } from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
 import ExpenseItem from "../ExpenseItem";
+import ExpensesSummary from "./ExpensesSummary";
 
 export default function ExpensesOutput({
   expenses,
   summaryTitle,
   setIsEditing,
 }) {
-  const totalExpense = expenses
-    .map((expense) => expense.price)
-    .reduce((acc, value) => acc + value, 0);
-
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          backgroundColor: "white",
-          width: "100%",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          borderRadius: 4,
-          padding: 8,
-        }}
-      >
-        <Text style={{ color: "purple" }}>{summaryTitle}</Text>
-        <Text style={{ color: "purple", fontWeight: "bold" }}>
-          ${totalExpense}
-        </Text>
-      </View>
+      <ExpensesSummary expenses={expenses} summaryTitle={summaryTitle} />
       <FlatList
         style={{ width: "100%", gap: 12 }}
         data={expenses}
