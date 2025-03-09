@@ -1,67 +1,80 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AllExpensesScreen from "./screens/AllExpensesScreen";
 import RecentExpensesScreen from "./screens/RecentExpensesScreen";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Pressable } from "react-native";
-import { useState } from "react";
-import AddModal from "./components/AddModal";
 import { StatusBar } from "expo-status-bar";
+import ManageExpense from "./screens/ManageExpenseScreen";
 
+const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
 
-export default function App() {
-  [isAdding, setIsAdding] = useState(false);
+function ExpensesOverview({ navigation }) {
+  return (
+    <BottomTab.Navigator
+      screenOptions={{
+        headerTintColor: "white",
+        headerStyle: {
+          backgroundColor: "blue",
+        },
+        headerRight: () => (
+          <Pressable
+            style={{ marginRight: 12 }}
+            onPress={() => navigation.navigate("ManageExpense")}
+          >
+            <Ionicons name="add" size={24} color="white" />
+          </Pressable>
+        ),
+        tabBarStyle: {
+          backgroundColor: "blue",
+        },
+        tabBarActiveTintColor: "yellow",
+        tabBarInactiveTintColor: "gray",
+      }}
+    >
+      <BottomTab.Screen
+        name="RecentExpenses"
+        component={RecentExpensesScreen}
+        options={{
+          title: "Recent",
+          headerTitle: "Recent Expenses",
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="hourglass" size={24} color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="AllExpenses"
+        component={AllExpensesScreen}
+        options={{
+          title: "All Expenses",
+          headerTitle: "All Expenses",
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="calendar" size={24} color={color} />
+          ),
+        }}
+      />
+    </BottomTab.Navigator>
+  );
+}
 
+export default function App() {
   return (
     <>
       <StatusBar style="light" />
-      <AddModal visible={isAdding} onClose={() => setIsAdding(false)} />
       <NavigationContainer>
-        <BottomTab.Navigator
-          screenOptions={{
-            headerTintColor: "white",
-            headerStyle: {
-              backgroundColor: "blue",
-            },
-            headerRight: () => (
-              <Pressable
-                style={{ marginRight: 12 }}
-                onPress={() => setIsAdding(true)}
-              >
-                <Ionicons name="add" size={24} color="white" />
-              </Pressable>
-            ),
-            tabBarStyle: {
-              backgroundColor: "blue",
-            },
-            tabBarActiveTintColor: "yellow",
-            tabBarInactiveTintColor: "gray",
-          }}
-        >
-          <BottomTab.Screen
-            name="Recent Expenses"
-            component={RecentExpensesScreen}
+        <Stack.Navigator>
+          <Stack.Screen
+            name="ExpensesOverview"
+            component={ExpensesOverview}
             options={{
-              title: "Recent",
-              headerTitle: "Recent Expenses",
-              tabBarIcon: ({ color }) => (
-                <Ionicons name="hourglass" size={24} color={color} />
-              ),
+              headerShown: false,
             }}
           />
-          <BottomTab.Screen
-            name="All Expenses"
-            component={AllExpensesScreen}
-            options={{
-              title: "All Expenses",
-              headerTitle: "All Expenses",
-              tabBarIcon: ({ color }) => (
-                <Ionicons name="calendar" size={24} color={color} />
-              ),
-            }}
-          />
-        </BottomTab.Navigator>
+          <Stack.Screen name="ManageExpense" component={ManageExpense} />
+        </Stack.Navigator>
       </NavigationContainer>
     </>
   );

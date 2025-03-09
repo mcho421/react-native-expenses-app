@@ -1,8 +1,8 @@
 import { Button, Modal, Text, View } from "react-native";
 
-export default function AddModal({ visible, onClose }) {
+export default function ManageExpense({ navigation }) {
   return (
-    <Modal animationType="slide" transparent visible={visible}>
+    <Modal animationType="slide" transparent visible={true}>
       <View
         style={{
           backgroundColor: "darkblue",
@@ -35,7 +35,11 @@ export default function AddModal({ visible, onClose }) {
             }}
           >
             <View style={{ width: "35%" }}>
-              <Button title="Cancel" color="darkblue" onPress={onClose} />
+              <Button
+                title="Cancel"
+                color="darkblue"
+                onPress={() => navigation.goBack()}
+              />
             </View>
             <View style={{ width: "35%" }}>
               <Button title="Add" />
