@@ -7,6 +7,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Pressable } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import ManageExpense from "./screens/ManageExpenseScreen";
+import { GlobalStyles } from "./constants/styles";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -17,7 +18,7 @@ function ExpensesOverview({ navigation }) {
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
-          backgroundColor: "blue",
+          backgroundColor: GlobalStyles.colors.primary500,
         },
         headerRight: () => (
           <Pressable
@@ -28,20 +29,19 @@ function ExpensesOverview({ navigation }) {
           </Pressable>
         ),
         tabBarStyle: {
-          backgroundColor: "blue",
+          backgroundColor: GlobalStyles.colors.primary500,
         },
-        tabBarActiveTintColor: "yellow",
-        tabBarInactiveTintColor: "gray",
+        tabBarActiveTintColor: GlobalStyles.colors.accent500,
       }}
     >
       <BottomTab.Screen
         name="RecentExpenses"
         component={RecentExpensesScreen}
         options={{
-          title: "Recent",
-          headerTitle: "Recent Expenses",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="hourglass" size={24} color={color} />
+          title: "Recent Expenses",
+          tabBarLabel: "Recent",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="hourglass" size={size} color={color} />
           ),
         }}
       />
@@ -50,9 +50,9 @@ function ExpensesOverview({ navigation }) {
         component={AllExpensesScreen}
         options={{
           title: "All Expenses",
-          headerTitle: "All Expenses",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="calendar" size={24} color={color} />
+          tabBarLabel: "All Expenses",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="calendar" size={size} color={color} />
           ),
         }}
       />
