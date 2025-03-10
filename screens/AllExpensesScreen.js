@@ -20,7 +20,7 @@ export default function AllExpensesScreen() {
       <EditModal visible={isEditing} onClose={() => setIsEditing(false)} />
       <ExpensesOutput
         expenses={expenses}
-        summaryTitle="Total"
+        periodName="Total"
         setIsEditing={setIsEditing}
       />
     </>

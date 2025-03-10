@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 
-export default function ExpensesSummary({ expenses, summaryTitle }) {
+export default function ExpensesSummary({ expenses, periodName }) {
   const totalExpense = expenses
     .map((expense) => expense.price)
     .reduce((acc, value) => acc + value, 0);
@@ -16,7 +16,7 @@ export default function ExpensesSummary({ expenses, summaryTitle }) {
         padding: 8,
       }}
     >
-      <Text style={{ color: "purple" }}>{summaryTitle}</Text>
+      <Text style={{ color: "purple" }}>{periodName}</Text>
       <Text style={{ color: "purple", fontWeight: "bold" }}>
         ${totalExpense}
       </Text>

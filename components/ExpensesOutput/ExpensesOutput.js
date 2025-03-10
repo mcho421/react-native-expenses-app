@@ -2,14 +2,10 @@ import { StyleSheet, View } from "react-native";
 import ExpensesSummary from "./ExpensesSummary";
 import ExpensesList from "./ExpensesList";
 
-export default function ExpensesOutput({
-  expenses,
-  summaryTitle,
-  setIsEditing,
-}) {
+export default function ExpensesOutput({ expenses, periodName, setIsEditing }) {
   return (
     <View style={styles.container}>
-      <ExpensesSummary expenses={expenses} summaryTitle={summaryTitle} />
+      <ExpensesSummary expenses={expenses} periodName={periodName} />
       <ExpensesList expenses={expenses} setIsEditing={setIsEditing} />
     </View>
   );

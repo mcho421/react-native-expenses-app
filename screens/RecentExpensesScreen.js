@@ -17,7 +17,7 @@ export default function RecentExpensesScreen() {
       <EditModal visible={isEditing} onClose={() => setIsEditing(false)} />
       <ExpensesOutput
         expenses={expenses}
-        summaryTitle="Last 7 Days"
+        periodName="Last 7 Days"
         setIsEditing={setIsEditing}
       />
     </>
