@@ -1,9 +1,9 @@
 import { Text, View } from "react-native";
 
 export default function ExpensesSummary({ expenses, periodName }) {
-  const totalExpense = expenses
-    .map((expense) => expense.price)
-    .reduce((acc, value) => acc + value, 0);
+  const totalExpense = expenses.reduce((sum, expense) => {
+    return sum + expense.price;
+  }, 0);
 
   return (
     <View
