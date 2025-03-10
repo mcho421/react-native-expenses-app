@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 
 export default function ExpensesSummary({ expenses, periodName }) {
-  const totalExpense = expenses.reduce((sum, expense) => {
+  const expensesSum = expenses.reduce((sum, expense) => {
     return sum + expense.price;
   }, 0);
 
@@ -18,7 +18,7 @@ export default function ExpensesSummary({ expenses, periodName }) {
     >
       <Text style={{ color: "purple" }}>{periodName}</Text>
       <Text style={{ color: "purple", fontWeight: "bold" }}>
-        ${totalExpense}
+        ${expensesSum}
       </Text>
     </View>
   );
