@@ -9,7 +9,7 @@ export default function ExpensesList({ expenses, setIsEditing }) {
       renderItem={(itemData) => (
         <ExpenseItem
           description={itemData.item.description}
-          date={itemData.item.date}
+          date={itemData.item.date.toISOString().split("T")[0]}
           amount={itemData.item.amount}
           onPress={() => setIsEditing(true)}
         />
