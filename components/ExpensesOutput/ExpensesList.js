@@ -14,6 +14,7 @@ export default function ExpensesList({ expenses, setIsEditing }) {
           onPress={() => setIsEditing(true)}
         />
       )}
+      keyExtractor={(item) => item.id}
     />
   );
 }
