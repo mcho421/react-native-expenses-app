@@ -18,7 +18,7 @@ export default function ExpensesSummary({ expenses, periodName }) {
     >
       <Text style={{ color: "purple" }}>{periodName}</Text>
       <Text style={{ color: "purple", fontWeight: "bold" }}>
-        ${expensesSum}
+        ${expensesSum.toFixed(2)}
       </Text>
     </View>
   );
