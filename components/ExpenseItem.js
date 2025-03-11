@@ -1,6 +1,6 @@
 import { View, Text, Pressable } from "react-native";
 
-export default function ExpenseItem({ description, date, price, onPress }) {
+export default function ExpenseItem({ description, date, amount, onPress }) {
   return (
     <Pressable onPress={onPress}>
       <View
@@ -29,7 +29,7 @@ export default function ExpenseItem({ description, date, price, onPress }) {
             alignItems: "center",
           }}
         >
-          <Text style={{ color: "purple", fontWeight: "bold" }}>{price}</Text>
+          <Text style={{ color: "purple", fontWeight: "bold" }}>{amount}</Text>
         </View>
       </View>
     </Pressable>

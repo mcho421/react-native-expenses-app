@@ -10,7 +10,7 @@ export default function ExpensesList({ expenses, setIsEditing }) {
         <ExpenseItem
           description={itemData.item.description}
           date={itemData.item.date}
-          price={itemData.item.price}
+          amount={itemData.item.amount}
           onPress={() => setIsEditing(true)}
         />
       )}
