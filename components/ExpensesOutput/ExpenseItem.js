@@ -52,7 +52,7 @@ export default function ExpenseItem({ description, date, amount, onPress }) {
               fontWeight: "bold",
             }}
           >
-            {amount}
+            {amount.toFixed(2)}
           </Text>
         </View>
       </View>
