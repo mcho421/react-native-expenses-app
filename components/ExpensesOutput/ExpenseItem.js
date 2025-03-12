@@ -30,7 +30,9 @@ export default function ExpenseItem({ description, date, amount, onPress }) {
           >
             {description}
           </Text>
-          <Text style={{ color: GlobalStyles.colors.primary50 }}>{date}</Text>
+          <Text style={{ color: GlobalStyles.colors.primary50 }}>
+            {date.toISOString().split("T")[0]}
+          </Text>
         </View>
         <View
           style={{
