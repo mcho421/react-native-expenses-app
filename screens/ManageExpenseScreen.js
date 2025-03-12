@@ -13,6 +13,10 @@ export default function ManageExpense({ route, navigation }) {
     });
   }, [navigation, isEditing]);
 
+  function deleteExpenseHandler() {
+    navigation.goBack();
+  }
+
   return (
     <View
       style={{
@@ -75,7 +79,7 @@ export default function ManageExpense({ route, navigation }) {
                 icon="trash"
                 color={GlobalStyles.colors.error500}
                 size={36}
-                onPress={() => navigation.goBack()}
+                onPress={deleteExpenseHandler}
               />
             </View>
           </>
