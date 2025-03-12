@@ -4,7 +4,10 @@ import { getFormattedDate } from "../../util/date";
 
 export default function ExpenseItem({ description, date, amount, onPress }) {
   return (
-    <Pressable onPress={onPress}>
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => pressed && { opacity: 0.75 }}
+    >
       <View
         style={{
           backgroundColor: GlobalStyles.colors.primary500,
