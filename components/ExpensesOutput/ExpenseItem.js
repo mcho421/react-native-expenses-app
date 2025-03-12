@@ -1,5 +1,6 @@
 import { View, Text, Pressable } from "react-native";
 import { GlobalStyles } from "../../constants/styles";
+import { getFormattedDate } from "../../util/date";
 
 export default function ExpenseItem({ description, date, amount, onPress }) {
   return (
@@ -31,7 +32,7 @@ export default function ExpenseItem({ description, date, amount, onPress }) {
             {description}
           </Text>
           <Text style={{ color: GlobalStyles.colors.primary50 }}>
-            {date.toISOString().split("T")[0]}
+            {getFormattedDate(date)}
           </Text>
         </View>
         <View
