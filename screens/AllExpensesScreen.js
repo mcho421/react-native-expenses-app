@@ -1,10 +1,6 @@
-import EditModal from "../components/EditModal";
-import { useState } from "react";
 import ExpensesOutput from "../components/ExpensesOutput/ExpensesOutput";
 
 export default function AllExpensesScreen() {
-  [isEditing, setIsEditing] = useState(false);
-
   const expenses = [
     {
       id: 1,
@@ -51,13 +47,10 @@ export default function AllExpensesScreen() {
   ];
 
   return (
-    <>
-      <EditModal visible={isEditing} onClose={() => setIsEditing(false)} />
-      <ExpensesOutput
-        expenses={expenses}
-        periodName="Total"
-        setIsEditing={setIsEditing}
-      />
-    </>
+    <ExpensesOutput
+      expenses={expenses}
+      periodName="Total"
+      setIsEditing={setIsEditing}
+    />
   );
 }

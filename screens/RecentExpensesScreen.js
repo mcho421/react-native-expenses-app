@@ -1,10 +1,6 @@
-import EditModal from "../components/EditModal";
-import { useState } from "react";
 import ExpensesOutput from "../components/ExpensesOutput/ExpensesOutput";
 
 export default function RecentExpensesScreen() {
-  [isEditing, setIsEditing] = useState(false);
-
   const expenses = [
     {
       id: 1,
@@ -33,13 +29,10 @@ export default function RecentExpensesScreen() {
   ];
 
   return (
-    <>
-      <EditModal visible={isEditing} onClose={() => setIsEditing(false)} />
-      <ExpensesOutput
-        expenses={expenses}
-        periodName="Last 7 Days"
-        setIsEditing={setIsEditing}
-      />
-    </>
+    <ExpensesOutput
+      expenses={expenses}
+      periodName="Last 7 Days"
+      setIsEditing={setIsEditing}
+    />
   );
 }
