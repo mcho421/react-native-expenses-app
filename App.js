@@ -8,6 +8,7 @@ import { Pressable } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import ManageExpense from "./screens/ManageExpenseScreen";
 import { GlobalStyles } from "./constants/styles";
+import IconButton from "./components/UI/IconButton";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -20,13 +21,13 @@ function ExpensesOverview({ navigation }) {
         headerStyle: {
           backgroundColor: GlobalStyles.colors.primary500,
         },
-        headerRight: () => (
-          <Pressable
-            style={{ marginRight: 12 }}
+        headerRight: ({ tintColor }) => (
+          <IconButton
+            icon="add"
+            size={24}
+            color={tintColor}
             onPress={() => navigation.navigate("ManageExpense")}
-          >
-            <Ionicons name="add" size={24} color="white" />
-          </Pressable>
+          />
         ),
         tabBarStyle: {
           backgroundColor: GlobalStyles.colors.primary500,
