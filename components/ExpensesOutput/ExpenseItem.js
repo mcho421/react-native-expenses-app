@@ -43,6 +43,7 @@ export default function ExpenseItem({ description, date, amount, onPress }) {
             borderRadius: 4,
             justifyContent: "center",
             alignItems: "center",
+            minWidth: 80,
           }}
         >
           <Text
