@@ -1,6 +1,7 @@
 import { useLayoutEffect } from "react";
-import { Button, Modal, Pressable, Text, View } from "react-native";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { Button, Text, View } from "react-native";
+import IconButton from "../components/UI/IconButton";
+import { GlobalStyles } from "../constants/styles";
 
 export default function ManageExpense({ route, navigation }) {
   const editedExpenseId = route.params?.expenseId;
@@ -70,12 +71,12 @@ export default function ManageExpense({ route, navigation }) {
                 justifyContent: "center",
               }}
             >
-              <Pressable
-                style={{ padding: 6 }}
+              <IconButton
+                icon="trash"
+                color={GlobalStyles.colors.error500}
+                size={36}
                 onPress={() => navigation.goBack()}
-              >
-                <Ionicons name="trash" color="red" size={28}></Ionicons>
-              </Pressable>
+              />
             </View>
           </>
         )}
