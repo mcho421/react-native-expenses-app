@@ -1,5 +1,5 @@
 import { FlatList } from "react-native";
-import ExpenseItem from "../ExpenseItem";
+import ExpenseItem from "./ExpenseItem";
 
 export default function ExpensesList({ expenses, setIsEditing }) {
   return (
