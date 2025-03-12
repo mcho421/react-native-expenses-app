@@ -61,28 +61,22 @@ export default function ManageExpense({ route, navigation }) {
           </View>
         </View>
         {isEditing && (
-          <>
-            <View
-              style={{
-                borderBottomColor: "white",
-                borderBottomWidth: 1,
-                margin: 12,
-              }}
+          <View
+            style={{
+              marginTop: 16,
+              paddingTop: 8,
+              borderTopWidth: 2,
+              borderTopColor: GlobalStyles.colors.primary200,
+              alignItems: "center",
+            }}
+          >
+            <IconButton
+              icon="trash"
+              color={GlobalStyles.colors.error500}
+              size={36}
+              onPress={deleteExpenseHandler}
             />
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "center",
-              }}
-            >
-              <IconButton
-                icon="trash"
-                color={GlobalStyles.colors.error500}
-                size={36}
-                onPress={deleteExpenseHandler}
-              />
-            </View>
-          </>
+          </View>
         )}
       </View>
     </View>
