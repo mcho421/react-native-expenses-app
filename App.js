@@ -13,10 +13,10 @@ import IconButton from "./components/UI/IconButton";
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
 
-function ExpensesOverview({ navigation }) {
+function ExpensesOverview() {
   return (
     <BottomTab.Navigator
-      screenOptions={{
+      screenOptions={({ navigation }) => ({
         headerTintColor: "white",
         headerStyle: {
           backgroundColor: GlobalStyles.colors.primary500,
@@ -33,7 +33,7 @@ function ExpensesOverview({ navigation }) {
           backgroundColor: GlobalStyles.colors.primary500,
         },
         tabBarActiveTintColor: GlobalStyles.colors.accent500,
-      }}
+      })}
     >
       <BottomTab.Screen
         name="RecentExpenses"
