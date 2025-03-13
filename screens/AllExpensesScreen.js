@@ -46,11 +46,5 @@ export default function AllExpensesScreen() {
     },
   ];
 
-  return (
-    <ExpensesOutput
-      expenses={expenses}
-      periodName="Total"
-      setIsEditing={setIsEditing}
-    />
-  );
+  return <ExpensesOutput expenses={expenses} periodName="Total" />;
 }

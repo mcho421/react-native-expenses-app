@@ -28,11 +28,5 @@ export default function RecentExpensesScreen() {
     },
   ];
 
-  return (
-    <ExpensesOutput
-      expenses={expenses}
-      periodName="Last 7 Days"
-      setIsEditing={setIsEditing}
-    />
-  );
+  return <ExpensesOutput expenses={expenses} periodName="Last 7 Days" />;
 }
