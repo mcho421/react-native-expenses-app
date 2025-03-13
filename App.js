@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AllExpensesScreen from "./screens/AllExpensesScreen";
 import RecentExpensesScreen from "./screens/RecentExpensesScreen";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Pressable } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import ManageExpense from "./screens/ManageExpenseScreen";
 import { GlobalStyles } from "./constants/styles";
