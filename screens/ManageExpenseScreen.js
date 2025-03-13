@@ -1,7 +1,8 @@
 import { useLayoutEffect } from "react";
-import { Button, View } from "react-native";
+import { View } from "react-native";
 import IconButton from "../components/UI/IconButton";
 import { GlobalStyles } from "../constants/styles";
+import Button from "../components/UI/Button";
 
 export default function ManageExpense({ route, navigation }) {
   const editedExpenseId = route.params?.expenseId;
@@ -17,6 +18,12 @@ export default function ManageExpense({ route, navigation }) {
     navigation.goBack();
   }
 
+  function cancelHandler() {
+    navigation.goBack();
+  }
+
+  function confirmHandler() {}
+
   return (
     <View
       style={{
@@ -29,19 +36,23 @@ export default function ManageExpense({ route, navigation }) {
         style={{
           flexDirection: "row",
           justifyContent: "center",
+          alignItems: "center",
           gap: 18,
         }}
       >
-        <View style={{ width: "35%" }}>
-          <Button
-            title="Cancel"
-            color="darkblue"
-            onPress={() => navigation.goBack()}
-          />
-        </View>
-        <View style={{ width: "35%" }}>
-          <Button title={isEditing ? "Update" : "Add"} />
-        </View>
+        <Button
+          mode="flat"
+          onPress={cancelHandler}
+          style={{ minWidth: 120, marginHorizontal: 8 }}
+        >
+          Cancel
+        </Button>
+        <Button
+          onPress={confirmHandler}
+          style={{ minWidth: 120, marginHorizontal: 8 }}
+        >
+          {isEditing ? "Update" : "Add"}
+        </Button>
       </View>
       {isEditing && (
         <View
