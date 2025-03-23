@@ -1,32 +1,16 @@
+import { useContext } from "react";
 import ExpensesOutput from "../components/ExpensesOutput/ExpensesOutput";
+import { ExpensesContext } from "../store/expenses-context";
+import { getDateMinusDays } from "../util/date";
 
 export default function RecentExpensesScreen() {
-  const expenses = [
-    {
-      id: 1,
-      description: "A book",
-      date: new Date("2022-2-19"),
-      amount: 14.99,
-    },
-    {
-      id: 2,
-      description: "Another book",
-      date: new Date("2022-2-18"),
-      amount: 18.59,
-    },
-    {
-      id: 3,
-      description: "A book",
-      date: new Date("2023-2-19"),
-      amount: 14.99,
-    },
-    {
-      id: 4,
-      description: "Another book",
-      date: new Date("2022-2-18"),
-      amount: 18.59,
-    },
-  ];
+  const expensesCtx = useContext(ExpensesContext);
+  const recentExpenses = expensesCtx.expenses.filter((expense) => {
+    const today = new Date();
+    const date7DaysAgo = getDateMinusDays(today, 365 * 3); // TODO: change to 7
 
-  return <ExpensesOutput expenses={expenses} periodName="Last 7 Days" />;
+    return expense.date > date7DaysAgo;
+  });
+
+  return <ExpensesOutput expenses={recentExpenses} periodName="Last 7 Days" />;
 }
