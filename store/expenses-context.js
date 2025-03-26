@@ -1,53 +1,9 @@
 import { createContext, useReducer } from "react";
 
-const DUMMY_EXPENSES = [
-  {
-    id: 1,
-    description: "Test",
-    date: new Date("2022-5-19"),
-    amount: 19.99,
-  },
-  {
-    id: 2,
-    description: "A pair of shoes",
-    date: new Date("2022-2-19"),
-    amount: 59.99,
-  },
-  {
-    id: 3,
-    description: "A pair of trousers",
-    date: new Date("2022-1-5"),
-    amount: 89.29,
-  },
-  {
-    id: 4,
-    description: "Some bananas",
-    date: new Date("2021-12-1"),
-    amount: 5.99,
-  },
-  {
-    id: 5,
-    description: "Test!!!!!",
-    date: new Date("2022-5-20"),
-    amount: 29.99,
-  },
-  {
-    id: 6,
-    description: "A pair of trousers",
-    date: new Date("2022-1-5"),
-    amount: 89.29,
-  },
-  {
-    id: 7,
-    description: "Some bananas",
-    date: new Date("2021-12-1"),
-    amount: 5.99,
-  },
-];
-
 export const ExpensesContext = createContext({
   expenses: [],
   addExpense: ({ description, amount, date }) => {},
+  setExpenses: (expenses) => {},
   deleteExpense: (id) => {},
   updateExpense: (id, { description, amount, date }) => {},
 });
@@ -57,6 +13,8 @@ function expensesReducer(state, action) {
     case "ADD":
       const id = new Date().toString() + Math.random().toString();
       return [{ ...action.payload, id: id }, ...state];
+    case "SET":
+      return action.payload;
     case "UPDATE":
       const updatableExpenseIndex = state.findIndex(
         (expense) => expense.id === action.payload.id
@@ -74,10 +32,14 @@ function expensesReducer(state, action) {
 }
 
 function ExpensesContextProvider({ children }) {
-  const [expensesState, dispatch] = useReducer(expensesReducer, DUMMY_EXPENSES);
+  const [expensesState, dispatch] = useReducer(expensesReducer, []);
 
   function addExpense(expenseData) {
     dispatch({ type: "ADD", payload: expenseData });
+  }
+
+  function setExpenses(expenses) {
+    dispatch({ type: "SET", payload: expenses });
   }
 
   function deleteExpense(id) {
@@ -91,6 +53,7 @@ function ExpensesContextProvider({ children }) {
   const value = {
     expenses: expensesState,
     addExpense: addExpense,
+    setExpenses: setExpenses,
     deleteExpense: deleteExpense,
     updateExpense: updateExpense,
   };
